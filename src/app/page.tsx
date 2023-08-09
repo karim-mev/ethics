@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/config/category";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 import Link from "next/link";
 

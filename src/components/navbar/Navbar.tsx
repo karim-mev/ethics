@@ -1,9 +1,10 @@
+"use client"
 import Link from "next/link";
 import NavMenu from "./NavMenu";
 
 export default function Navbar() {
   return (
-    <div className="flex border-b-2 items-center justify-between py-4 px-40">
+    <div className="flex border-b-2 items-center justify-between py-4 px-10 sm:px-20 md:px-40">
       <Link href="/">
         <h1 className="text-lg font-bold">Ethics</h1>
       </Link>
