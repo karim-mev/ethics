@@ -18,7 +18,7 @@ export default function Navbar() {
         <Link href="/" className="hover:text-muted-foreground">
           Products
         </Link>
-        <NavMenu />
+        {/* <NavMenu /> */}
       </div>
     </div>
   );

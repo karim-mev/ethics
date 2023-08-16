@@ -1,27 +1,41 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import { siteConfig } from "@/config/site";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "Ethics",
-  description: "Shopping app using Next.js",
+  title: siteConfig.name,
+  description: siteConfig.desc,
+  keywords: [
+    "Ethics",
+    "Shop",
+    "Shop in Lebanon",
+    "Ethics Store",
+    "Buy Products",
+  ],
+  authors: [
+    {
+      name: "karimev",
+      url: "https://github.com/kari-maw",
+    },
+  ],
+  creator: "karimev",
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface ReactLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: ReactLayoutProps) {
   return (
     <html lang="en">
-      <body className="">
+      <body className="dark">
         <Navbar />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

@@ -20,7 +20,7 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { SelectOptions } from "@/config/Select";
 import Image from "next/image";
-import ProductCard from "./ProductCard";
+import ProductCard from "./product-card";
 import { ProductsList } from "@/config/product-list";
 
 type TitleType = {
@@ -61,13 +61,13 @@ export default function Products({ title }: TitleType) {
         </Select>
       </div>
       <div className="flex flex-wrap justify-center gap-4 my-10">
-        {ProductsList.map((product) => (
+        {/* {ProductsList.map((product) => (
           <ProductCard
             img={product.img}
             alt={product.alt}
             title={product.title}
           />
-        ))}
+        ))} */}
       </div>
     </div>
   );

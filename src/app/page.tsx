@@ -1,10 +1,24 @@
+import ProductoCard from "@/components/products/product-card";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { categories } from "@/config/category";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
-export default function Home() {
+import type { Database } from "@/lib/database.types";
+
+interface ProductTestProp {
+  product: {
+    id: string;
+  };
+}
+
+export default async function Home() {
+  const supabase = createServerComponentClient<Database>({ cookies });
+  const { data: products } = await supabase.from("products").select().limit(8);
   return (
     <main className="flex min-h-screen flex-col items-center text-center justify- gap-8 py-24 px-6 sm:px-24">
       <Badge className="py-4 px-6 text-lg font-medium" variant="outline">
@@ -19,10 +33,27 @@ export default function Home() {
         with your values
       </h3>
       <div className="flex gap-3">
-        <Button size="lg">Shop now</Button>
-        <Button size="lg" variant="outline">
+        <Link
+          href="/"
+          className={cn(
+            buttonVariants({
+              size: "lg",
+            })
+          )}
+        >
+          Shop now
+        </Link>
+        <Link
+          href="/"
+          className={cn(
+            buttonVariants({
+              variant: "outline",
+              size: "lg",
+            })
+          )}
+        >
           Sell now
-        </Button>
+        </Link>
       </div>
       <div id="categories" className="pt-28">
         <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl mb-4">
@@ -33,7 +64,7 @@ export default function Home() {
           your values
         </h3>
       </div>
-      <div className="flex flex-wrap gap-4 w-full justify-center border-black">
+      <div className="flex flex-wrap gap-4 w-full justify-center border-black pb-28">
         {categories.map((category, index) => (
           <div
             className="relative w-5/6 md:w-[45%] lg:w-[23%] rounded-lg"
@@ -55,6 +86,16 @@ export default function Home() {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="w-full">
+        <h1 className="text-3xl font-bold md:text-5xl mb-6">
+          Discover Products
+        </h1>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {products?.map((product : product) => (
+            <ProductoCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </main>
   );
