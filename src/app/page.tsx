@@ -15,6 +15,7 @@ interface ProductTestProp {
     id: string;
   };
 }
+export const revalidate = 0;
 
 export default async function Home() {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -29,7 +30,7 @@ export default async function Home() {
         everything we do
       </h1>
       <h3 className="max-w-[46rem] text-lg text-muted-foreground sm:text-xl">
-        we're dedicated to providing you with a shopping experience that aligns
+        we are dedicated to providing you with a shopping experience that aligns
         with your values
       </h3>
       <div className="flex gap-3">

@@ -25,6 +25,8 @@ interface ProductProps {
   };
 }
 
+export const revalidate = 0;
+
 export default async function page({ params }: ProductProps) {
   const supabase = createServerComponentClient<Database>({ cookies });
   const { data: product } = await supabase

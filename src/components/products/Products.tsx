@@ -54,8 +54,8 @@ export default function Products({ title }: TitleType) {
             <SelectValue placeholder="sort" />
           </SelectTrigger>
           <SelectContent>
-            {SelectOptions.map((select) => (
-              <SelectItem value={select.value}>{select.option}</SelectItem>
+            {SelectOptions.map((select, index) => (
+              <SelectItem key={index} value={select.value}>{select.option}</SelectItem>
             ))}
           </SelectContent>
         </Select>
