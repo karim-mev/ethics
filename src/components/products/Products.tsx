@@ -22,18 +22,20 @@ import { SelectOptions } from "@/config/Select";
 import Image from "next/image";
 import ProductCard from "./product-card";
 import { ProductsList } from "@/config/product-list";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-type TitleType = {
-  title: string | undefined;
+import type { Database } from "@/lib/database.types";
+
+interface ProductType {
+  products: product[] | null
 };
 
-export default function Products({ title }: TitleType) {
+export default async function Products({products} : ProductType) {
+  const supabase = createClientComponentClient<Database>();
+
+  // const { data: products } = await supabase.from("products").select();
   return (
     <div className="p-10">
-      <div className="flex flex-col gap-2 mt- mb-5">
-        <h1 className="text-3xl font-bold">{title}</h1>
-        <h3 className="text-muted-foreground">{`Best ${title} for you`}</h3>
-      </div>
       <div className="flex gap-4">
         <Sheet>
           <SheetTrigger asChild>
@@ -55,19 +57,17 @@ export default function Products({ title }: TitleType) {
           </SelectTrigger>
           <SelectContent>
             {SelectOptions.map((select, index) => (
-              <SelectItem key={index} value={select.value}>{select.option}</SelectItem>
+              <SelectItem key={index} value={select.value}>
+                {select.option}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
-      <div className="flex flex-wrap justify-center gap-4 my-10">
-        {/* {ProductsList.map((product) => (
-          <ProductCard
-            img={product.img}
-            alt={product.alt}
-            title={product.title}
-          />
-        ))} */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10">
+        {products?.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

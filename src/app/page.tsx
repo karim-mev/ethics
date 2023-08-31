@@ -80,6 +80,7 @@ export default async function Home() {
                 width={500}
                 height={500}
                 className="w-full h-full rounded-lg"
+                loading="lazy"
               />
               <div className="absolute text-white text-3xl w-full h-full z-20 top-0 flex items-center justify-center md:text-2xl">
                 <h2>{category.title}</h2>

@@ -79,8 +79,7 @@ export default function ProductoCard({
                 startTransition(async () => {
                   try {
                     toast({
-                      title: "Added to cart",
-                      description: "This worked perfectly fine",
+                      description: "Added to cart",
                     });
                   } catch (error) {
                     console.log(error);

@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link href="#categories" className="hover:text-muted-foreground">
           Categories
         </Link>
-        <Link href="/" className="hover:text-muted-foreground">
+        <Link href="/products" className="hover:text-muted-foreground">
           Products
         </Link>
         {/* <NavMenu /> */}
