@@ -53,9 +53,9 @@ export default function ProductoCard({
         </CardHeader>
       </Link>
       <Link href={`/product/${product.id}`}>
-        <CardContent className="flex flex-col gap-2">
-          <CardTitle>{product.name}</CardTitle>
-          <CardDescription>{product.price}$</CardDescription>
+        <CardContent className="flex !items-center justify-center gap-2">
+          <CardTitle>{product.name}:</CardTitle>
+          <CardDescription className="text-xl">{product.price}$</CardDescription>
         </CardContent>
       </Link>
       <Separator className="mb-2" />

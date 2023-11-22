@@ -25,13 +25,13 @@ export default async function Home() {
       <Badge className="py-4 px-6 text-lg font-medium" variant="outline">
         More than 200 happy customers
       </Badge>
-      <h1 className="text-3xl font-bold leading-tight md:text-5xl lg:text-6xl lg:leading-[1.1] lg:w-">
-        Ethics, where our commitment to ethical values is at the heart of
+      <h1 className="text-3xl font-bold !leading-tight md:text-5xl lg:text-6xl lg:leading-[1.1] lg:w-">
+        Where our commitment to exquisite values is at the heart of
         everything we do
       </h1>
       <h3 className="max-w-[46rem] text-lg text-muted-foreground sm:text-xl">
-        we are dedicated to providing you with a shopping experience that aligns
-        with your values
+        We are dedicated to providing you with a premium shopping experience that aligns
+        with your needs
       </h3>
       <div className="flex gap-3">
         <Link
@@ -39,12 +39,13 @@ export default async function Home() {
           className={cn(
             buttonVariants({
               size: "lg",
+              className: "text-lg py-8 px-14",
             })
           )}
         >
           Shop now
         </Link>
-        <Link
+        {/* <Link
           href="/"
           className={cn(
             buttonVariants({
@@ -54,7 +55,7 @@ export default async function Home() {
           )}
         >
           Sell now
-        </Link>
+        </Link> */}
       </div>
       <div id="categories" className="pt-28">
         <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl mb-4">
@@ -72,7 +73,7 @@ export default async function Home() {
             key={index}
           >
             <Link href={`/categories/${category.link}`}>
-              <div className="absolute z-10 bg-black/60 w-full h-full rounded-lg hover:bg-black/70" />
+              <div className="absolute z-10 bg-black/40 w-full h-full rounded-lg hover:bg-black/70" />
               <Image
                 src={category.imageSrc}
                 alt="categories"

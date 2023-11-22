@@ -18,12 +18,11 @@ export default function NavMenu() {
           <ShoppingCart size="18" className="" />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="w-full">
         <SheetHeader>
-          <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+          <SheetTitle>Complete Shopping!</SheetTitle>
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Your Cart is Empty. Add Some Items to Checkout.
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

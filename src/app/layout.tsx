@@ -31,7 +31,7 @@ interface ReactLayoutProps {
 export default function RootLayout({ children }: ReactLayoutProps) {
   return (
     <html lang="en">
-      <body className="dark">
+      <body className="">
         <Navbar />
         {children}
         <Footer />
